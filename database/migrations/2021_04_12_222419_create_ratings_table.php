@@ -14,8 +14,12 @@ class CreateRatingsTable extends Migration
     public function up()
     {
         Schema::create('ratings', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->timestamps();
+            $table->integer('rating');
+            $table->string('ratingDate'); //timestamp?
+            $table->integer('movie_id')->unsigned();
+            $table->foreign('movie_id')->references('id')->on('movies');
         });
     }
 
