@@ -29,10 +29,10 @@ class RatingController extends Controller
     public function updateRating(Request $request, $id){
         $ratings = Rating::query();
         if($ratings-> where('id', $id)->exists()){
-            $trating = $ratings->find($id);
-            $trating->rating = is_null($request->rating) ? $trating->rating : $request->trating;
-            $trating->ratingDate = is_null($request->ratingDate) ? $trating->ratingDate : $request->trating;
-            $trating->save();
+            $rating = $ratings->find($id);
+            $rating->rating = is_null($request->rating) ? $rating->rating : $request->rating;
+            $rating->ratingDate = is_null($request->ratingDate) ? $rating->ratingDate : $request->rating;
+            $rating->save();
             return response()->json(['message' => 'Rating updated'], 200);
         }else{
             return response()->json(['message' => 'Rating not found'], 404);
@@ -42,8 +42,8 @@ class RatingController extends Controller
     public function deleteRating($id){
         $ratings = Rating::query();
         if($ratings->where('id', $id)->exists()){
-            $trating = $ratings->find($id);
-            $trating->delete();
+            $rating = $ratings->find($id);
+            $rating->delete();
             return response()->json(['message', 'Rating deleted.'], 202);
         } else{
             return response()->json(['message', 'Rating not found.'], 404);
@@ -62,8 +62,8 @@ class RatingController extends Controller
      public function getRating($id){
          $ratings = Rating::query();
          if($ratings->where('id', $id)->exists()){
-             $trating = $ratings->where('id',$id)->get();
-            return response($trating, 200);
+             $rating = $ratings->where('id',$id)->get();
+            return response($rating, 200);
          }else{
              return response()->json(['message' => 'Rating not found.'], 404);
          }
