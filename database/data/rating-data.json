@@ -1,22 +1,27 @@
 [
     {
         "rating": 4,
-        "ratingDate": "2018-04-02"
+        "ratingDate": "2018-04-02",
+        "movie_id": 4
     },
     {
         "rating": 1,
-        "ratingDate": "2002-12-16"
+        "ratingDate": "2002-12-16",
+        "movie_id": 2
     },
     {
         "rating": 2,
-        "ratingDate": "2011-09-29"
+        "ratingDate": "2011-09-29",
+        "movie_id": 1
     },
     {
         "rating": 4,
-        "ratingDate": "1999-11-14"
+        "ratingDate": "1999-11-14",
+        "movie_id": 3
     },
     {
         "rating": 1,
-        "ratingDate": "2021-03-06"
+        "ratingDate": "2021-03-06",
+        "movie_id": 5
     }
 ]

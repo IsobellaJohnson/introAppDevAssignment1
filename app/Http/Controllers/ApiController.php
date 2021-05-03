@@ -114,20 +114,20 @@ class ApiController extends Controller
     
     public function getAllRatings(Request $request){
         return Rating::with(['movies'])->get();
-    //     $ratings = Rating::query();
-    //     if($request->get('rating')){
-    //         $ratings->where('rating', '=', $request->get('rating'))->get();
-    //     }
-    //     return $ratings->get();
+         $ratings = Rating::query();
+         if($request->get('rating')){
+             $ratings->where('rating', '=', $request->get('rating'))->get();
+         }
+         return $ratings->get();
      }
     
-    // public function getRating($id){
-    //     $ratings = Rating::query();
-    //     if($ratings->where('id', $id)->exists()){
-    //         $trating = $ratings->where('id',$id)->get();
-    //         return response($trating, 200);
-    //     }else{
-    //         return response()->json(['message' => 'Rating not found.'], 404);
-    //     }
-    // }
+     public function getRating($id){
+         $ratings = Rating::query();
+         if($ratings->where('id', $id)->exists()){
+             $trating = $ratings->where('id',$id)->get();
+            return response($trating, 200);
+         }else{
+             return response()->json(['message' => 'Rating not found.'], 404);
+         }
+     }
 }
