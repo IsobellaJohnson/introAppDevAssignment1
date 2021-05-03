@@ -21,7 +21,8 @@ class RatingSeeder extends Seeder
             Rating::create(array(
                 'rating' => $obj->rating,
                 'ratingDate' => $obj->ratingDate,
-                'movie_id' => $obj->movie_id
+                'movie_id' => $obj->movie_id,
+                'reviewer_id' => $obj->reviewer_id
              ));
         }
     }

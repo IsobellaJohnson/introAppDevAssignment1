@@ -10,9 +10,10 @@ class Movie extends Model
 
     protected $table = 'movies';
     protected $fillable=['title', 'year', 'director', 'genre'];
+    protected $appends = ['rating_count'];
     
     public function ratings(){
-        return $this->hasMany(Rating::class);
+        return $this->hasOne(Rating::class); //hasMany??
     }
     public function getRatingCountAttribute(){
         return $this->ratings()->count();

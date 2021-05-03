@@ -2,26 +2,31 @@
     {
         "rating": 4,
         "ratingDate": "2018-04-02",
-        "movie_id": 4
+        "movie_id": 4,
+        "reviewer_id": 2
     },
     {
         "rating": 1,
         "ratingDate": "2002-12-16",
-        "movie_id": 2
+        "movie_id": 2,
+        "reviewer_id": 5
     },
     {
         "rating": 2,
         "ratingDate": "2011-09-29",
-        "movie_id": 1
+        "movie_id": 1,
+        "reviewer_id": 4
     },
     {
         "rating": 4,
         "ratingDate": "1999-11-14",
-        "movie_id": 3
+        "movie_id": 3,
+        "reviewer_id": 3
     },
     {
         "rating": 1,
         "ratingDate": "2021-03-06",
-        "movie_id": 5
+        "movie_id": 5,
+        "reviewer_id": 1
     }
 ]

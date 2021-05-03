@@ -34,4 +34,9 @@ Route::group(['prefix'=>'ratings'], function(){
     Route::get('/', 'RatingController@getAllRatings');
     // Route::get('/{id}', 'ApiController@getRating');
     });
+
+    Route::group(['prefix'=>'reviewer'], function(){
+        Route::get('/', 'ReviewerController@getAllReviewers');
+            // Route::get('/{id}', 'ApiController@getReview');
+    });
     
