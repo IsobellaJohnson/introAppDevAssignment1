@@ -8,11 +8,12 @@ class Reviewer extends Model
 {
     protected $table = "reviewers";
     protected $fillable=['name'];
+    public $timestamps = false;
 
-    public function ratings(){
-        return $this->hasOne(Rating::class);
-    }
-    public function getRatingCountAttribute(){
-        return $this->ratings()->count();
-    }
+    // public function ratings(){
+    //     return $this->hasOne(Rating::class);
+    // }
+    // public function getRatingCountAttribute(){
+    //     return $this->ratings()->count();
+    // }
 }

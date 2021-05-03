@@ -17,7 +17,7 @@ class CreateRatingsTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->integer('rating');
-            $table->string('ratingDate'); //timestamp?
+            $table->string('ratingDate'); 
             $table->integer('reviewer_id')->unsigned();
             $table->foreign('reviewer_id')->references('id')->on('reviewers');
             $table->integer('movie_id')->unsigned();

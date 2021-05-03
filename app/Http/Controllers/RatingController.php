@@ -5,13 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Movie;
 use App\Rating;
+use App\Reviewer;
 use Validator;
 
 class RatingController extends Controller
 {
-    //movie CRUD
-
-
     //rating CRUD -- remember movies = ratings movie =trating
 
     // public function createRating(Request $request){
@@ -53,7 +51,7 @@ class RatingController extends Controller
     // }
     
     public function getAllRatings(Request $request){
-        return Rating::with(['movies'])->get();
+        return Rating::with(['movies', 'reviewers'])->get();
          $ratings = Rating::query();
          if($request->get('rating')){
              $ratings->where('rating', '=', $request->get('rating'))->get();

@@ -8,7 +8,8 @@ class Rating extends Model
 {
     protected $table = 'ratings';
     protected $fillable = ['rating', 'ratingDate', 'movie_id', 'reviewer_id'];
-
+    public $timestamps = false;
+    
     public function movies(){
         return $this->belongsTo(Movie::class, 'movie_id');
     }
