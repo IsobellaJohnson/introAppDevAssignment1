@@ -4,14 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Reviewer;
-use validator;
+use Validator;
 
 class ReviewerController extends Controller
 {
     public function createReviewer(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required'
+            'first_name' => 'required',
+            'last_name' => 'required'
         ]);
 
         if($validator->fails()){
@@ -46,8 +47,9 @@ class ReviewerController extends Controller
     public function getAllReviewers(Request $request)
     {
         $reviewers = Reviewer::query();
-        if($request->get('name')){
-            $reviewers->where('name', '=', $request->get('name'))->get();
+        if($request->get('first_name')){
+            $reviewers->where('first_name', '=', $request->get('first_name'))->get();
+            
         }
         return $reviewers->get();
     }
