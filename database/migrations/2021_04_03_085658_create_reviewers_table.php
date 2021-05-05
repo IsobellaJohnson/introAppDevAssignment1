@@ -16,7 +16,8 @@ class CreateReviewersTable extends Migration
         Schema::create('reviewers', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-            $table->string('name');
+            $table->string('first_name');
+            $table->string('last_name');
         });
     }
 

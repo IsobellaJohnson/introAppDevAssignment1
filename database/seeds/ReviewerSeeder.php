@@ -19,7 +19,8 @@ class ReviewerSeeder extends Seeder
         $data = json_decode($json_file);
         foreach($data as $obj){
             Reviewer::create(array(
-                'name' => $obj->name,
+                'first_name' => $obj->first_name,
+                'last_name' => $obj->last_name
             ));
         }
     }

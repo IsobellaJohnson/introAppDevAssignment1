@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Reviewer extends Model
 {
     protected $table = "reviewers";
-    protected $fillable=['name'];
+    protected $fillable=['first_name', 'last_name'];
     public $timestamps = false;
 
     // public function ratings(){

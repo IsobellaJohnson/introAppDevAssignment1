@@ -1,17 +1,22 @@
 [
     {
-        "name": "Stanley Luettgen"
+        "first_name": "Stanley",
+        "last_name": "Luettgen"
     },
     {
-        "name": "Ben Oberbrunner"
+        "first_name": "Ben",
+        "last_name": "Oberbrunner"
     },
     {
-        "name": "Bette Kilback"
+        "first_name": "Bette",
+        "last_name": "Kilback"
     },
     {
-        "name": "Xavier Harris"
+        "first_name": "Xavier",
+        "last_name": "Harris"
     },
     {
-        "name": "Trevor Auer"
+        "first_name": "Trevor",
+        "last_name": "Auer"
     }
 ]
