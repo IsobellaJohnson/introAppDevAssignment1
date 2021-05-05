@@ -28,15 +28,18 @@ Route::get('/{id}', 'MovieController@getMovie');
 
 
 Route::group(['prefix'=>'ratings'], function(){
-    // Route::post('/', 'ApiController@createRating');
-    // Route::put('/{id}', 'ApiController@updateRating');
-    // Route::delete('/{id}', 'ApiController@deleteRating');
+    Route::post('/', 'RatingController@createRating');
+    Route::put('/{id}', 'RatingController@updateRating');
+    Route::delete('/{id}', 'RatingController@deleteRating');
     Route::get('/', 'RatingController@getAllRatings');
-    // Route::get('/{id}', 'ApiController@getRating');
+    Route::get('/{id}', 'RatingController@getRating');
     });
 
-    Route::group(['prefix'=>'reviewer'], function(){
+    Route::group(['prefix'=>'reviewers'], function(){
+        Route::post('/', 'ReviewerController@createReviewer');
+        Route::put('/{id}', 'ReviewerController@updateReviewer');
+        Route::delete('/{id}', 'ReviewerController@deleteReviewer');
         Route::get('/', 'ReviewerController@getAllReviewers');
-            // Route::get('/{id}', 'ApiController@getReview');
+        Route::get('/{id}', 'ReviewerController@getReviewer');
     });
     
