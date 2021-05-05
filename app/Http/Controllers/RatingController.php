@@ -50,10 +50,10 @@ class RatingController extends Controller
         }
     }
     
-    public function getAllRatings(Request $request){
+    public function getAllRatings(Request $request){ 
         return Rating::with(['movies', 'reviewers'])->get();
          $ratings = Rating::query();
-         if($request->get('rating')){
+         if($request->get('rating')){ //tihs might need to be changed later cos get rating
              $ratings->where('rating', '=', $request->get('rating'))->get();
          }
          return $ratings->get();
