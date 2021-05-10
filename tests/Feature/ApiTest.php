@@ -11,6 +11,7 @@ use Tests\TestCase;
 
 class ApiTest extends TestCase
 {
+    //use RefreshDatabase;
     /**
      * A basic feature test example.
      *
@@ -26,12 +27,12 @@ class ApiTest extends TestCase
     public function setUp(): void{
         parent::setUp();
 
-        // Movie::create([
-        //     'title' => 'testMov1',
-        //     'year' => "2000",
-        //     'director' => 'testDir1',
-        //     'genre' => 'testGen1'
-        // ]);
+        Movie::create([
+            'title' => 'testMov1',
+            'year' => "2000",
+            'director' => 'testDir1',
+            'genre' => 'testGen1'
+        ]);
 
         Reviewer::create([
             'first_name' => 'Jane',
@@ -50,10 +51,10 @@ class ApiTest extends TestCase
 
         public function testPOSTMovies(){
             $payload = [
-                'title' => 'testMov2',
-                'year' => '2001',
-                'director' => 'testDir2',
-                'genre' => 'testGen3'
+                'title' => 'Tenet',
+                'year' => '2020',
+                'director' => 'Christopher Nolan',
+                'genre' => 'Action'
             ];
             $response = $this->post('api/movies', $payload);
             $response
@@ -64,10 +65,10 @@ class ApiTest extends TestCase
         }
         public function testUpdateMovies(){
             $payload = [
-                'title' => 'updatedMovie',
-                'year' => '1900',
+                'title' => 'Get Out',
+                'year' => '2016',
                 'director' => 'Jon Jones',
-                'genre' => 'Action'
+                'genre' => 'Thriller'
             ];
 
             $response = $this->put('/api/movies/2', $payload);
@@ -118,4 +119,31 @@ class ApiTest extends TestCase
         //     ]);
             
         // }
+
+        public function testPOSTReviewer(){
+            $payload = [
+                'first_name' => 'Belle',
+                'last_name' => 'Johnson',
+            ];
+            $response = $this->post('api/reviewers', $payload);
+            $response
+                ->assertStatus(201)
+                ->assertJSON([
+                    "message" => "Reviewer created."
+                ]);
+        }
+
+        public function testUpdateReviewer(){
+            $payload = [
+                'first_name' => 'Donald',
+                'last_name' => 'Duck',
+            ];
+
+            $response = $this->put('api/reviewers/3', $payload);
+            $response
+                ->assertStatus(200)
+                ->assertJson([
+                    "message" => "Reviewer updated."
+               ]);
+        }
 }
