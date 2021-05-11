@@ -20,9 +20,7 @@ class RatingSeeder extends Seeder
         foreach($data as $obj){
             Rating::create(array(
                 'rating' => $obj->rating,
-                'ratingDate' => $obj->ratingDate,
-                'movie_id' => $obj->movie_id,
-                'reviewer_id' => $obj->reviewer_id
+                'ratingDate' => $obj->ratingDate
              ));
         }
     }

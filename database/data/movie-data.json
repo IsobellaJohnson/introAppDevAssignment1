@@ -3,60 +3,81 @@
         "title":"The Shawshank Redemption",
         "genre":"Drama",
         "year":"1994",
-        "director":"Frank Darabont"
+        "director":"Frank Darabont",
+        "reviewer_id": 2,
+        "rating_id": 4
     },
     {
         "title":"The Godfather",
         "genre":"Crime",
         "year":"1972",
-        "director":"Francis Ford Coppola"
+        "director":"Francis Ford Coppola",
+        "reviewer_id": 5,
+        "rating_id": 2
     },
     {
         "title":"Schindler's List",
         "genre":"Drama",
         "year":"1993",
-        "director":"Steven Spielberg"
+        "director":"Steven Spielberg",
+        "reviewer_id": 4,
+        "rating_id": 1
     },
     {
         "title":"Inception",
         "genre":"Action",
         "year":"2010",
-        "director":"Christopher Nolan"
+        "director":"Christopher Nolan",
+        "reviewer_id": 3,
+        "rating_id": 3
     },
     {
         "title":"The Matrix",
         "genre":"Sci-fi",
         "year":"1999",
-        "director":"Lana Wachowski"
+        "director":"Lana Wachowski",
+        "reviewer_id": 1,
+        "rating_id": 6
+
     },
     {
         "title":"The Lion King",
         "genre":"Animation",
         "year":"1994",
-        "director":"Roger Allers"
+        "director":"Roger Allers",
+        "reviewer_id": 2,
+        "rating_id": 8
     },
     {
         "title":"Stand by Me",
         "genre":"Drama",
         "year":"1986",
-        "director":"Rob Reiner"
+        "director":"Rob Reiner",
+        "reviewer_id": 5,
+        "rating_id": 7
     },
     {
         "title":"The Truman Show",
         "genre":"Drama",
         "year":"1998",
-        "director":"Peter Weir"
+        "director":"Peter Weir",
+        "reviewer_id": 4,
+        "rating_id": 10
     },
     {
         "title":"The Silence of the Lambs",
         "genre":"Crime",
         "year":"1991",
-        "director":"Jonathan Demme"
+        "director":"Jonathan Demme",
+        "reviewer_id": 3,
+        "rating_id": 9
     },
     {
         "title":"Rocky",
         "genre":"Sport",
         "year":"1976",
-        "director":"John G. Avildsen"
+        "director":"John G. Avildsen",
+        "reviewer_id": 1,
+        "rating_id": 5
     }
 ]

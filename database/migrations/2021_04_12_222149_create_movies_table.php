@@ -19,6 +19,10 @@ class CreateMoviesTable extends Migration
             $table->string('genre');
             $table->integer('year');
             $table->string('director');
+            $table->integer('reviewer_id')->unsigned();
+            $table->foreign('reviewer_id')->references('id')->on('reviewers')->onDelete('cascade');
+            $table->integer('rating_id')->unsigned();
+            $table->foreign('rating_id')->references('id')->on('ratings')->onDelete('cascade');
             $table->timestamps();
         });
     }

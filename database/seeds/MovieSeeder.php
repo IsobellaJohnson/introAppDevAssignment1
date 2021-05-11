@@ -23,6 +23,8 @@ class MovieSeeder extends Seeder
                 'genre' => $obj->genre,
                 'year' => $obj->year,
                 'director' => $obj->director,
+                'reviewer_id' => $obj->reviewer_id,
+                'rating_id' => $obj->rating_id
             ));
         }
     }
