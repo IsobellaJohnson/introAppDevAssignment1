@@ -28,5 +28,35 @@
         "genre":"Sci-fi",
         "year":"1999",
         "director":"Lana Wachowski"
+    },
+    {
+        "title":"The Lion King",
+        "genre":"Animation",
+        "year":"1994",
+        "director":"Roger Allers"
+    },
+    {
+        "title":"Stand by Me",
+        "genre":"Drama",
+        "year":"1986",
+        "director":"Rob Reiner"
+    },
+    {
+        "title":"The Truman Show",
+        "genre":"Drama",
+        "year":"1998",
+        "director":"Peter Weir"
+    },
+    {
+        "title":"The Silence of the Lambs",
+        "genre":"Crime",
+        "year":"1991",
+        "director":"Jonathan Demme"
+    },
+    {
+        "title":"Rocky",
+        "genre":"Sport",
+        "year":"1976",
+        "director":"John G. Avildsen"
     }
 ]

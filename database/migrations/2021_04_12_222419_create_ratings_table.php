@@ -19,7 +19,7 @@ class CreateRatingsTable extends Migration
             $table->integer('rating');
             $table->string('ratingDate'); 
             $table->integer('reviewer_id')->unsigned();
-            $table->foreign('reviewer_id')->references('id')->on('reviewers');//->onDelete('cascade');
+            $table->foreign('reviewer_id')->references('id')->on('reviewers')->onDelete('cascade');
             $table->integer('movie_id')->unsigned();
             $table->foreign('movie_id')->references('id')->on('movies')->onDelete('cascade');
         });
