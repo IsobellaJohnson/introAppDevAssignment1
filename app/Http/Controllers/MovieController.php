@@ -40,6 +40,7 @@ class movieController extends Controller
     }
     }
     public function deleteMovie($id){
+        
         $movies = Movie::query();
         if($movies->where('id', $id)->exists()){
             $movie = $movies->find($id);
@@ -51,6 +52,7 @@ class movieController extends Controller
     }
 
     public function getAllMovies(Request $request){
+        return Movie::with(['ratings', 'reviewers'])->get();
         $movies = Movie::query();
         if($request->get('title')){
             $movies->where('title', '=', $request->get('title'))->get();
