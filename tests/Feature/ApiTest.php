@@ -27,17 +27,20 @@ class ApiTest extends TestCase
     public function setUp(): void{
         parent::setUp();
 
-        Movie::create([ //shows up 7 times??
-            'title' => 'Avatar',
-            'year' => "2009",
-            'director' => 'James Cameron',
-            'genre' => 'Sci-fi'
-        ]);
+        // Movie::create([ //shows up 7 times??
+        //     'title' => 'Avatar',
+        //     'year' => "2009",
+        //     'director' => 'James Cameron',
+        //     'genre' => 'Sci-fi',
+        //     'reviewer_id' =>  6,
+        //     'rating_id' => 7
 
-        Reviewer::create([
-            'first_name' => 'Jane',
-            'last_name' => 'Doe'
-        ]);
+        // ]);
+
+        // Reviewer::create([
+        //     'first_name' => 'Jane',
+        //     'last_name' => 'Doe'
+        // ]);
 
         // Rating::create([
         //     'rating' => '4',
@@ -52,7 +55,9 @@ class ApiTest extends TestCase
                 'title' => 'Tenet',
                 'year' => '2020',
                 'director' => 'Christopher Nolan',
-                'genre' => 'Action'
+                'genre' => 'Action',
+                'reviewer_id' =>  9,
+                'rating_id' => 1
             ];
             $response = $this->post('api/movies', $payload);
             $response
@@ -66,7 +71,9 @@ class ApiTest extends TestCase
                 'title' => 'Get Out',
                 'year' => '2016',
                 'director' => 'Jordan Peele',
-                'genre' => 'Thriller'
+                'genre' => 'Thriller',
+                'reviewer_id' => 9,
+                'rating_id' => 3
             ];
 
             $response = $this->put('/api/movies/2', $payload);
@@ -83,6 +90,7 @@ class ApiTest extends TestCase
                 ->assertJsonStructure(
                     [
                         '*' => [
+                            'id',
                             'title',
                             'year',
                             'director',
@@ -109,14 +117,14 @@ class ApiTest extends TestCase
                 ]);
         }
         public function testDELETEMovieNotFound(){
-            $response = $this->delete('/api/movies/3');
+            $response = $this->delete('/api/movies/23');
             $response
-            ->assertStatus(202)
+            ->assertStatus(404)
             ->assertJson([
-                "message"=>"Movie deleted." //need to change this to movie not found in the controller so it works
+                "message"=>"Movie not found." //need to change this to movie not found in the controller so it works
             ]);
         }
-        public function testPOSTReviewer(){
+        public function testPOSTReviewers(){
             $payload = [
                 'first_name' => 'Humpty',
                 'last_name' => 'Dumpty'
@@ -127,7 +135,122 @@ class ApiTest extends TestCase
             ->assertJson([
                 "message" => "Reviewer created" //change in controller to having a fullstop
             ]);
-
         }
+        public function testUpdateReviewers(){
+            $payload = [
+                'first_name' => 'Kamaru',
+                'last_name' => 'Usman'
+            ];
+
+            $response = $this->put('/api/reviewers/3', $payload);
+            $response
+                ->assertStatus(200)
+                ->assertJson([
+                    "message" => "Reviewer updated"
+               ]);
+        }
+        public function testGETReviewers(){
+            $response = $this->get('/api/reviewers');
+            $response
+                ->assertStatus(200)
+                ->assertJsonStructure(
+                    [
+                        '*' => [
+                            'id',
+                            'first_name',
+                            'last_name'
+                        ]
+                    ]
+            );
+        }
+        public function testGETReviewer(){
+            $response = $this->get('/api/reviewers/8');
+            $response
+            ->assertStatus(200)
+            ->assertJsonFragment([
+                'first_name' => 'Colby'
+            ]);
+        }
+        public function testDELETEReviewer()
+        {
+            $response = $this->delete('/api/reviewers/1');
+            $response
+                ->assertStatus(202)
+                ->assertJson([
+                    "message" => "Reviewer deleted"
+                ]);
+        }
+        public function testDELETEReviewerNotFound(){
+            $response = $this->delete('/api/reviewers/17');
+            $response
+            ->assertStatus(404)
+            ->assertJson([
+                "message"=>"Reviewer not found" 
+            ]);
+        }
+        public function testPOSTRatings(){
+            $payload = [
+                'rating' => '2',
+                'ratingDate' => '11-11-2011',
+            ];
+            $response = $this->post('api/ratings', $payload);
+            $response
+                ->assertStatus(201)
+                ->assertJSON([
+                    "message" => "Rating created"
+                ]);
+        }
+         public function testUpdateRatings(){
+            $payload = [
+                'rating' => '4',
+                'ratingDate' => '01-01-0001'
+            ];
+
+            $response = $this->put('/api/ratings/4', $payload);
+            $response
+                ->assertStatus(200)
+                ->assertJson([
+                    "message" => "Rating updated"
+               ]);
+        }
+        public function testGETRatings(){
+            $response = $this->get('/api/ratings');
+            $response
+                ->assertStatus(200)
+                ->assertJsonStructure(
+                    [
+                        '*' => [
+                            'rating',
+                            'ratingDate'
+                        ]
+                    ]
+            );
+        }
+        public function testGETRating(){
+            $response = $this->get('/api/ratings/1');
+            $response
+            ->assertStatus(200)
+            ->assertJsonFragment([
+                'rating' => 4
+            ]);
+        }
+        public function testDELETERating()
+        {
+            $response = $this->delete('/api/ratings/6');
+            $response
+                ->assertStatus(202)
+                ->assertJson([
+                    "message" => "Rating deleted"
+                ]);
+        }
+        // public function testDELETERatingNotFound(){
+        //     $response = $this->delete('/api/ratings/50');
+        //     $response
+        //     ->assertStatus(404)
+        //     ->assertJson([
+        //         "message" => "Rating not found" 
+        //     ]);
+        // }
+
      
 }
