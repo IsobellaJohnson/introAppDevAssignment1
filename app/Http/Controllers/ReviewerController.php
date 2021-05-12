@@ -25,8 +25,9 @@ class ReviewerController extends Controller
     public function updateReviewer(Request $request, $id){
         $reviewers = Reviewer::query();
         if($reviewers-> where('id', $id)->exists()){
-            $reviwer = $reviewers->find($id);
-            $reviewer->name = is_null($request->name) ? $reviewer->name : $request->name;
+            $reviewer = $reviewers->find($id);
+            $reviewer->first_name = is_null($request->first_name) ? $reviewer->first_name : $request->first_name;
+            $reviewer->last_name = is_null($request->last_name) ? $reviewer->last_name : $request->last_name;
             $reviewer->save();
             return response()->json(['message' => 'Reviewer updated'], 200);
         } else{
