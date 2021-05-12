@@ -65,7 +65,23 @@ class ApiTest extends TestCase
                 ->assertJSON([
                     "message" => "Movie created."
                 ]);
+
+                $payload2 = [
+                    'title' => 'Wall-e',
+                    'year' => '2007',
+                    'director' => 'Andrew Stanton',
+                    'genre' => 'Animation',
+                    'reviewer_id' =>  8,
+                    'rating_id' => 2
+                ];
+                $response = $this->post('api/movies', $payload2);
+                $response
+                    ->assertStatus(201)
+                    ->assertJSON([
+                        "message" => "Movie created."
+                    ]);
         }
+
         public function testUpdateMovies(){
             $payload = [
                 'title' => 'Get Out',
@@ -126,10 +142,20 @@ class ApiTest extends TestCase
         }
         public function testPOSTReviewers(){
             $payload = [
-                'first_name' => 'Humpty',
-                'last_name' => 'Dumpty'
+                'first_name' => 'Calvin',
+                'last_name' => 'Klein'
             ];
             $response = $this->post('/api/reviewers', $payload);
+            $response
+            ->assertStatus(201)
+            ->assertJson([
+                "message" => "Reviewer created" //change in controller to having a fullstop
+            ]);
+            $payload2 = [
+                'first_name' => 'Marc',
+                'last_name' => 'Jacobs'
+            ];
+            $response = $this->post('/api/reviewers', $payload2);
             $response
             ->assertStatus(201)
             ->assertJson([
@@ -199,11 +225,21 @@ class ApiTest extends TestCase
                 ->assertJSON([
                     "message" => "Rating created"
                 ]);
+                $payload2 = [
+                    'rating' => '5',
+                    'ratingDate' => '22-01-1981',
+                ];
+                $response = $this->post('api/ratings', $payload2);
+                $response
+                    ->assertStatus(201)
+                    ->assertJSON([
+                        "message" => "Rating created"
+                    ]);
         }
          public function testUpdateRatings(){
             $payload = [
                 'rating' => '4',
-                'ratingDate' => '01-01-0001'
+                'ratingDate' => '01-01-2021' //showing up as 4
             ];
 
             $response = $this->put('/api/ratings/4', $payload);
@@ -243,14 +279,14 @@ class ApiTest extends TestCase
                     "message" => "Rating deleted"
                 ]);
         }
-        // public function testDELETERatingNotFound(){
-        //     $response = $this->delete('/api/ratings/50');
-        //     $response
-        //     ->assertStatus(404)
-        //     ->assertJson([
-        //         "message" => "Rating not found" 
-        //     ]);
-        // }
+        public function testDELETERatingNotFound(){
+            $response = $this->delete('/api/ratings/50');
+            $response
+            ->assertStatus(404)
+            ->assertJson([
+                "message" => "Rating not found" 
+            ]);
+        }
 
      
 }
