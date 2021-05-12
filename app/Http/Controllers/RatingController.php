@@ -44,9 +44,9 @@ class RatingController extends Controller
         if($ratings->where('id', $id)->exists()){
             $rating = $ratings->find($id);
             $rating->delete();
-            return response()->json(['message', 'Rating deleted.'], 202);
+            return response()->json(['message', 'Rating deleted'], 202);
         } else{
-            return response()->json(['message', 'Rating not found.'], 404);
+            return response()->json(['message', 'Rating not found'], 404);
         }
     }
     
