@@ -57,6 +57,15 @@ class movieController extends Controller
         if($request->get('title')){
             $movies->where('title', '=', $request->get('title'))->get();
         }
+        if($request->get('genre')){
+            $movies->where('genre', '=', $request->get('genre'))->get();
+        }
+        if($request->get('year')){
+            $movies->where('year', '=', $request->get('year'))->get();
+        }
+        if($request->get('director')){
+            $movies->where('director', '=', $request->get('director'))->get();
+        }
         return $movies->get();
 
     }

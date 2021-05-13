@@ -49,8 +49,10 @@ class ReviewerController extends Controller
     {
         $reviewers = Reviewer::query();
         if($request->get('first_name')){
-            $reviewers->where('first_name', '=', $request->get('first_name'))->get();
-            
+            $reviewers->where('first_name', '=', $request->get('first_name'))->get();         
+        }
+        if($request->get('last_name')){
+            $reviewers->where('last_name', '=', $request->get('last_name'))->get();         
         }
         return $reviewers->get();
     }
