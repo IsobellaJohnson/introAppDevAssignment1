@@ -66,6 +66,12 @@ class movieController extends Controller
         if($request->get('director')){
             $movies->where('director', '=', $request->get('director'))->get();
         }
+        if($request->get('reviewer_id')){
+            $movies->where('reviewer_id', '=', $request->get('reviewer_id'))->get();
+        }
+        if($request->get('rating_id')){
+            $movies->where('rating_id', '=', $request->get('rating_id'))->get();
+        }
         return $movies->get();
 
     }
