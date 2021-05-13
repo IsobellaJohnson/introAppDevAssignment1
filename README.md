@@ -1,7 +1,7 @@
 # intoAppDevAssignment1
 
-**Heroku App URL:** _https://introappdev.herokuapp.com/_
-**Postman API Documentation:** 
+**Heroku App URL:** https://introappdev.herokuapp.com/
+**Postman API Documentation:** https://documenter.getpostman.com/view/13086928/TzRVeknn
 
 **Setting up the environment for development:**
     1. run laravel, press start all
