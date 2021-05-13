@@ -10,7 +10,6 @@ use Validator;
 
 class RatingController extends Controller
 {
-    //rating CRUD -- remember movies = ratings movie =trating
 
      public function createRating(Request $request){
         $validator = Validator::make($request->all(), [
@@ -51,12 +50,12 @@ class RatingController extends Controller
     }
     
     public function getAllRatings(Request $request){ 
-       // return Rating::with(['movies', 'reviewers'])->get();
+
          $ratings = Rating::query();
-         if($request->get('rating')){ //this might need to be changed later cos get rating
+         if($request->get('rating')){ 
              $ratings->where('rating', '=', $request->get('rating'))->get();
          }
-         if($request->get('ratingDate')){ //this might need to be changed later cos get rating
+         if($request->get('ratingDate')){ 
             $ratings->where('ratingDate', '=', $request->get('ratingDate'))->get();
         }
          return $ratings->get();
